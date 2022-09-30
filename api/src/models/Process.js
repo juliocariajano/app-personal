@@ -15,11 +15,11 @@ module.exports=(sequelize)=>{
         },
         description:{
             type:DataTypes.STRING,
-            allowNull:Null
+            allowNull:false
         },
         amount:{
             type:DataTypes.STRING,
-            allowNull:Null
+            allowNull:false
         }, 
         
     },{

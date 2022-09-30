@@ -2,7 +2,7 @@ const {DataTypes} = require("sequelize")
 
 
 module.exports=(sequelize)=>{
-    sequelize.define('staff',{
+    sequelize.define('staffs',{
         id:{
             type:DataTypes.INTEGER,
             autoIncrement:true,
@@ -15,7 +15,7 @@ module.exports=(sequelize)=>{
         },
         avatar:{
             type:DataTypes.STRING,
-            allowNull:Null
+            allowNull:false
         }, 
         document:{
             type:DataTypes.INTEGER,

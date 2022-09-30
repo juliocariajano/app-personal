@@ -15,7 +15,7 @@ module.exports=(sequelize)=>{
         },
         name_account:{
             type:DataTypes.STRING,
-            allowNull:Null
+            allowNull:false
         }, 
         
     },{
