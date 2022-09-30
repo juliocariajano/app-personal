@@ -92,17 +92,21 @@ const postStaff = async (req, res)=>{
     let { name,avatar, document,addres,phone} = req.body;
     try {
         const staff = {name,avatar, document,addres,phone}
-        if(isNaN(name)===false)
-        return res.send("El valor ingresado no debe ser numerico");
+        if(isNaN(name)===false){
+            return res.send("El valor ingresado no debe ser numerico");
+
+        }
         if(!name || !avatar || !document || !addres ||  !phone) res.send("Falta informacion");
         const validate = await Staffs.findOne({
             where:{document},
         })
         if(!validate){
-            let newStaff = await Staffs.create(staff);
-            res.status(200).send(`La persona ${staff} con numero de documento ${document} se registro correctamente`)
+            const newStaff = await Staffs.create(staff);
+            // res.status(200).send("creado")
+            res.status(200).send(`La persona ${name} con numero de documento ${document} se registro correctamente`)
+
         }else{
-            res.status(400).send(`No se puede registrar la persona ${staff} porque ya existe el numero de documento ${document}en la base de datos`)
+            res.status(400).send(`No se puede registrar la persona ${name}  porque ya existe el numero de documento ${document} en la base de datos`)
         }
     } catch (error) {
         console.log(error)
